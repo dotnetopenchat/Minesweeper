@@ -1,5 +1,0 @@
-● 파일은 총 3개로 되어 있습니다.
-
-- MinesweeperHost.exe : 지뢰찾기 게임 알고리즘 측정
-- Minesweeper.dll : 지뢰찾기 로직 구현 인터페이스 DLL
-- MinesweeperController.dll : Minesweeper.dll 인터페이스를 상속받아 구현한 구현체 알고리즘 DLL
