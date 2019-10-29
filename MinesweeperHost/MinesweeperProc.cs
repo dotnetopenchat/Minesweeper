@@ -108,7 +108,7 @@
                     _minesCellInfoArray[y].Add(new MinesCellInfo(_minesArray[y][x].Idx,
                         _minesArray[y][x].UseFlag,
                         _minesArray[y][x].IsRevealed,
-                        _minesArray[y][x].MineCountHint));
+                        null));
                 }
             }
         }
@@ -284,6 +284,7 @@
 
                     _minesCellInfoArray[y][x].IsRevealed = minesCellInfo.IsRevealed;
                     _minesCellInfoArray[y][x].UseFlag = minesCellInfo.UseFlag;
+                    _minesCellInfoArray[y][x].MineCountHint = minesCellInfo.MineCountHint;
 
                     if (minesCellInfo.MineCountHint == 0)
                     {
