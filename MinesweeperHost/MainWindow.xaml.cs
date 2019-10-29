@@ -67,18 +67,19 @@
             var controllerDLL = Assembly.LoadFile(System.AppDomain.CurrentDomain.BaseDirectory + "\\MinesweeperController.dll");
             foreach (Type type in controllerDLL.GetExportedTypes())
             {
-                if(this.IsImplementationOf(type, typeof(IControl))) {
+                if (this.IsImplementationOf(type, typeof(IControl)))
+                {
                     _controller = (IControl)Activator.CreateInstance(type);
                 }
             }
-            if(_controller == null)
+            if (_controller == null)
             {
                 MessageBox.Show("IControl를 생성할 수 없습니다.");
                 return;
             }
 
             _gameTimer = new DispatcherTimer();
-            _gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            _gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 0);
             _gameTimer.Tick += this.GameTimer_Tick;
             _startTime = DateTime.Now;
             _gameTimer.Start();
@@ -95,7 +96,7 @@
             _controller.Reveal(out useFlag, out y, out x, _minesweeperProc.MinesCellInfoArray);
             bool? result = _minesweeperProc.ChoiceCell(y, x, useFlag, out strResult);
 
-            if(result == null)
+            if (result == null)
             {
                 _gameTimer.Start();
             }
